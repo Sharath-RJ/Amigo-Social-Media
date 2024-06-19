@@ -1,6 +1,10 @@
 import { trainerRepository } from "../../../../app/repositories/trainerRepository"
 import { UserModel } from "../models/userModel"
 
+export interface AvailableSlot {
+    dayOfWeek: string
+    timeRange: string
+}
 export class trainerRepositoryMongoDB implements trainerRepository {
     async completeProfile(
         fullName: string,
@@ -10,6 +14,7 @@ export class trainerRepositoryMongoDB implements trainerRepository {
         qualifications: string,
         timeZone: string,
         hourlyRate: number,
+        AvailableSlots: AvailableSlot[],
         id: string
     ): Promise<any> {
         console.log("user id from mongo", id)
@@ -25,6 +30,7 @@ export class trainerRepositoryMongoDB implements trainerRepository {
                         qualifications,
                         timeZone,
                         hourlyRate,
+                        AvailableSlots,
                         profileComplete: true,
                     },
                 },
@@ -35,11 +41,20 @@ export class trainerRepositoryMongoDB implements trainerRepository {
         }
     }
 
-   async getDashboard(id: string): Promise<any> {
-      try {
-        return await UserModel.findById(id)
-      } catch (error) {
-         console.log(error)
-      }
-   }
+    async getDashboard(id: string): Promise<any> {
+        try {
+            return await UserModel.findById(id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    async getAllTrainers(): Promise<any> {
+        try {
+            return await UserModel.find({role:"Trainer"})
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

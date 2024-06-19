@@ -9,9 +9,9 @@ export class TrainerController {
 
  async completeProfile(req:customRequest, res:Response): Promise<void> {
        try {
-         const {fullName, bio, specialization, experience, qualifications, timeZone, hourlyRate}= req.body
+         const {fullName, bio, specialization, experience, qualifications, timeZone, hourlyRate, AvailableSlots}= req.body
          console.log("id from authenticated user", req.user?._id)
-         const profileCompleted= await this._trainerUseCase.completeProfile(fullName, bio, specialization, experience, qualifications, timeZone, hourlyRate, req.user?._id)
+         const profileCompleted= await this._trainerUseCase.completeProfile(fullName, bio, specialization, experience, qualifications, timeZone, hourlyRate,AvailableSlots, req.user?._id)
          console.log("completed profile",profileCompleted)
          if(profileCompleted) {
             res.status(200).json(profileCompleted)
@@ -30,8 +30,22 @@ export class TrainerController {
         res.status(200).json(dashboard)
       }
     
-      return dashboard
+
     } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async getAllTrainers(req:customRequest, res:Response):Promise<any> {
+    try {
+      const trainers = await this._trainerUseCase.getAllTrainers()
+    
+        console.log(trainers)
+      if(trainers){
+        res.status(200).json(trainers)
+      }
+    
+    }catch (error) {
       console.log(error)
     }
   }

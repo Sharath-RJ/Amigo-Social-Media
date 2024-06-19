@@ -12,6 +12,7 @@ export default function trainerRouter():Router{
 
    router.post("/completeProfile", authenticate, trainerController.completeProfile.bind(trainerController));
    router.get("/Dashboard", authenticate, trainerController.getDashboard.bind(trainerController));
+   router.get("/getAllTrainers", trainerController.getAllTrainers.bind(trainerController));
 
    return router
 }

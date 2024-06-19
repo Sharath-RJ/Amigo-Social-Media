@@ -59,6 +59,7 @@ export class TrainerProfileFormComponent {
           qualifications: this.qualifications,
           timeZone: this.timeZone,
           hourlyRate: this.hourlyRate,
+          AvailableSlots: this.timeSlots
         }
       )
       .subscribe(

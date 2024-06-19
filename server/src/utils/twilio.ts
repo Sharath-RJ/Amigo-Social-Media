@@ -5,6 +5,7 @@ export class TwilioService {
     private fromNumber: string
 
     constructor(accountSid: string, authToken: string, fromNumber: string) {
+        
         this.client = new Twilio(accountSid, authToken)
         this.fromNumber = fromNumber
         console.log("from number",this.fromNumber)

@@ -1,0 +1,59 @@
+<body class="py-8 px-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <app-icon-sidebar-menu></app-icon-sidebar-menu>
+      
+    </div>
+
+    <!--search bar-->
+    <div class="search-bar mb-6">
+        <input type="text" placeholder="Search trainers..." class="search-input">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 search-icon" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15.5 15.5L20 20m-4.5-4.5a6 6 0 1 1-8.485-8.485 6 6 0 0 1 8.485 8.485z" />
+        </svg>
+    </div>
+
+    <!-- Main content -->
+    <div class="max-w-4xl  mt-10 mx-auto pl-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    
+    
+        <!-- Example Trainer Cards -->
+        <div class="card rounded-lg overflow-hidden shadow-md hover:shadow-lg">
+            <div class="card-img bg-cover bg-center" style="background-image: url('https://via.placeholder.com/400');">
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg text-white font-semibold mb-2">John Smith</h3>
+                <p class="text-sm text-gray-400 mb-4">English Language Instructor</p>
+                <button routerLink="/TrainerProfile"
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">View
+                    Profile</button>
+            </div>
+        </div>
+
+        <div class="card rounded-lg overflow-hidden shadow-md hover:shadow-lg">
+            <div class="card-img bg-cover bg-center" style="background-image: url('https://via.placeholder.com/400');">
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg text-white font-semibold mb-2">Emily Johnson</h3>
+                <p class="text-sm text-gray-400 mb-4">IELTS Exam Preparation Coach</p>
+                <button
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">View
+                    Profile</button>
+            </div>
+        </div>
+
+        <div class="card rounded-lg overflow-hidden shadow-md hover:shadow-lg">
+            <div class="card-img bg-cover bg-center" style="background-image: url('https://via.placeholder.com/400');">
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg text-white font-semibold mb-2">Sarah Davis</h3>
+                <p class="text-sm text-gray-400 mb-4">Business English Trainer</p>
+                <button
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">View
+                    Profile</button>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,3 +1,4 @@
+import { Console } from "console";
 import {  trainerUseCase } from "../../app/useCases/trainer";
 import { Request, Response } from "express";
 interface customRequest extends Request {
@@ -48,5 +49,33 @@ export class TrainerController {
     }catch (error) {
       console.log(error)
     }
+  }
+
+
+  async getTrainerProfile(req:customRequest, res:Response):Promise<any> {
+    try {
+      const {id}= req.params
+      const trainerProfile = await this._trainerUseCase.getTrainerProfile(id)
+        console.log(trainerProfile)
+        if(trainerProfile){
+          res.status(200).json(trainerProfile)
+        }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async bookNow(req:customRequest, res:Response):Promise<any> {
+     try {
+       const {slot, trainerId}=  req.body
+       const booked= await this._trainerUseCase.bookNow(slot, trainerId, req.user?._id)
+       if(booked)
+          res.status(200).json(booked)
+     } catch (error) {
+        console.log(error)
+     }
+
+
+
   }
 }

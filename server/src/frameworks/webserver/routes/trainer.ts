@@ -13,6 +13,8 @@ export default function trainerRouter():Router{
    router.post("/completeProfile", authenticate, trainerController.completeProfile.bind(trainerController));
    router.get("/Dashboard", authenticate, trainerController.getDashboard.bind(trainerController));
    router.get("/getAllTrainers", trainerController.getAllTrainers.bind(trainerController));
+   router.get("/getTrainerProfile/:id", trainerController.getTrainerProfile.bind(trainerController));
+   router.post("/bookNow", authenticate, trainerController.bookNow.bind(trainerController));
 
    return router
 }

@@ -22,8 +22,6 @@ const routes = (app: Application) => {
     app.use("/api/amigo", amigoRouter())
     app.use("/api/trainer", trainerRouter())
 
-
-  
     
 }
 

@@ -1,4 +1,5 @@
 import { trainerRepository } from "../../../../app/repositories/trainerRepository"
+import { AppointmentModel } from "../models/appointments"
 import { UserModel } from "../models/userModel"
 
 export interface AvailableSlot {
@@ -53,6 +54,26 @@ export class trainerRepositoryMongoDB implements trainerRepository {
     async getAllTrainers(): Promise<any> {
         try {
             return await UserModel.find({role:"Trainer"})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async getTrainerProfile(id: string): Promise<any> {
+        try {
+            return await UserModel.findById(id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async bookNow(slot: string, trainerId: string, userId: string): Promise<any> {
+        try {
+            return AppointmentModel.create({
+                trainer: trainerId,
+                client: userId,
+                slot: slot,
+            })
         } catch (error) {
             console.log(error)
         }

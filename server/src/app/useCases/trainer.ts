@@ -23,4 +23,15 @@ export class trainerUseCase {
 
         return await this._trainerRepository.getAllTrainers()
     }
+
+    async getTrainerProfile(id: string) {
+        console.log("trainer id", id)
+
+        return await this._trainerRepository.getTrainerProfile(id)
+    }
+
+    async bookNow(slot: string, trainerId: string, userId: string) {
+        return await this._trainerRepository.bookNow(slot, trainerId, userId)
+
+    }
 }

@@ -9,5 +9,6 @@ export interface trainerRepository {
     getAllTrainers():Promise<any>
     getTrainerProfile(id:string):Promise<any>
     bookNow(slot: string, trainerId: string, userId: string): Promise<any>
+    getAllAppointments(id:string):Promise<any>
     
 }

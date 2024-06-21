@@ -34,4 +34,9 @@ export class trainerUseCase {
         return await this._trainerRepository.bookNow(slot, trainerId, userId)
 
     }
+
+    async getAllAppointments(id:string){
+
+        return await this._trainerRepository.getAllAppointments(id)
+    }
 }

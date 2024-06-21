@@ -74,8 +74,17 @@ export class TrainerController {
      } catch (error) {
         console.log(error)
      }
+  }
 
-
-
+  async getAllAppointments(req:customRequest, res:Response):Promise<any> {
+    try {
+      const appointments = await this._trainerUseCase.getAllAppointments(req.user?._id)
+        console.log(appointments)
+        if(appointments){
+          res.status(200).json(appointments)
+        }
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

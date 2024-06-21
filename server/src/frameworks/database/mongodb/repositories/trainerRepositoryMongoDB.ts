@@ -78,4 +78,12 @@ export class trainerRepositoryMongoDB implements trainerRepository {
             console.log(error)
         }
     }
+
+  async getAllAppointments(id: string): Promise<any> {
+    try {
+        return await AppointmentModel.find({trainer: id}).populate("client", "username profilePic")
+    } catch (error) {
+        console.log(error)
+    }
+}
 }

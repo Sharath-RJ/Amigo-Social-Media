@@ -31,10 +31,21 @@ interface ProfileData {
     timeZone:'',
     hourlyRate:0
     }
+    slots:any[]=[]
       ngOnInit(): void {
+        //getting all profile info
         this._http.get<ProfileData>(`${environment.apiUrl}/trainer/Dashboard`).subscribe((data)=>{
           console.log(data)
           this.profileData=data
+        }, (err)=>{
+          console.log(err)
+        })
+
+
+        //getting all apppointments of the user
+        this._http.get<any[]>(`${environment.apiUrl}/trainer/getAllAppointments`).subscribe((data)=>{
+          console.log("appointemnts",data)
+          this.slots=data
         }, (err)=>{
           console.log(err)
         })

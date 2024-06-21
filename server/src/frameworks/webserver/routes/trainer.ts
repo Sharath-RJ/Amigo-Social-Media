@@ -15,6 +15,7 @@ export default function trainerRouter():Router{
    router.get("/getAllTrainers", trainerController.getAllTrainers.bind(trainerController));
    router.get("/getTrainerProfile/:id", trainerController.getTrainerProfile.bind(trainerController));
    router.post("/bookNow", authenticate, trainerController.bookNow.bind(trainerController));
+   router.get("/getAllAppointments",authenticate, trainerController.getAllAppointments.bind(trainerController));
 
    return router
 }

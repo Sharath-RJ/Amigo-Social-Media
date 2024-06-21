@@ -13,10 +13,11 @@ dotenv.config()
 
 export default function mockRouter(): Router {
     const router = express.Router()
-    const mockserviceinstance = new mockservice()
-    const mockRepository= new mockTestRepositoryMongoDB()
-    const mockUseCaseInsstance = new mockUseCase(mockRepository,mockserviceinstance)
-    const mockControllerInstance = new mockTestController(mockUseCaseInsstance)
+   const mockRepositoryinstance = new mockTestRepositoryMongoDB();
+    const mockserviceinstance = new mockservice(mockRepositoryinstance);
+   const mockUseCaseInsstance = new mockUseCase(mockRepositoryinstance, mockserviceinstance);
+    const mockControllerInstance = new mockTestController(mockUseCaseInsstance);
+
 
 
 

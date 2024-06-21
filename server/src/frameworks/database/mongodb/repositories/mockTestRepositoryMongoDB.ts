@@ -9,4 +9,12 @@ export class mockTestRepositoryMongoDB   implements mockRepository{
          console.log(error)
        }
     }
+
+    async previousFeedback(id:string): Promise<any>{
+        try {
+            return await MockTest.findById(id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

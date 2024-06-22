@@ -50,6 +50,7 @@
         timeZone: {type:String},
         hourlyRate: {type:Number},
         AvailableSlots:[{dayOfWeek:String, timeRange:String, status:String}],
+        MeetLink: {type: String, required: true},
         createdAt: { type: Date, default: Date.now },
     })
 

@@ -135,7 +135,10 @@ export class userRepoMongoDB implements UserRepoInterface {
 
     async getMyAppointments(id:string): Promise<any> {
         try {
-            return await AppointmentModel.find({client: id}).populate("trainer", "fullName profilePic specialization")
+            return await AppointmentModel.find({ client: id }).populate(
+                "trainer",
+                "fullName profilePic specialization MeetLink"
+            )
         } catch (error) {
             console.log(error)
         }

@@ -5,24 +5,29 @@ import { environment } from '../../../../environment';
 @Component({
   selector: 'app-my-appointments',
   templateUrl: './my-appointments.component.html',
-  styleUrl: './my-appointments.component.css'
+  styleUrl: './my-appointments.component.css',
 })
 export class MyAppointmentsComponent implements OnInit {
-  constructor(private _http:HttpClient) { }
-  myAppointments:any[]=[]
+  constructor(private _http: HttpClient) {}
+  myAppointments: any[] = [];
 
-  ngOnInit(): void {  
-   // get all my appointments
+  ngOnInit(): void {
+    // get all my appointments
 
-   this._http.get<any[]>(`${environment.apiUrl}/user/getMyAppointments`).subscribe(
-     (data) => {
-      this.myAppointments=data
-       console.log(data)
-     },
-     (error) => {
-       console.log(error);
-     }
-   );
+    this._http
+      .get<any[]>(`${environment.apiUrl}/user/getMyAppointments`)
+      .subscribe(
+        (data) => {
+          this.myAppointments = data;
+          console.log(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
 
- }
+  joinMeet(link:string){
+    window.open(link, '_blank');
+  }
 }

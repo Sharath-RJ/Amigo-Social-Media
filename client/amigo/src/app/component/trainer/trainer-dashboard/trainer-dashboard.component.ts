@@ -34,6 +34,8 @@ interface ProfileData {
       MeetLink: '',
     };
     slots: any[] = [];
+    p: number = 1;
+    totalUsers: any;
     ngOnInit(): void {
       //getting all profile info
       this._http
@@ -62,10 +64,8 @@ interface ProfileData {
         );
     }
 
-    joinMeet(){
-        
-    const gMeetLink =this.profileData.MeetLink;
-    window.open(gMeetLink, '_blank');
-  
+    joinMeet() {
+      const gMeetLink = this.profileData.MeetLink;
+      window.open(gMeetLink, '_blank');
     }
   }

@@ -15,24 +15,24 @@ interface ProfileData {
 @Component({
   selector: 'app-list-trainer',
   templateUrl: './list-trainer.component.html',
-  styleUrl: './list-trainer.component.css'
+  styleUrl: './list-trainer.component.css',
 })
-
 export class ListTrainerComponent implements OnInit {
-  trainers: ProfileData[]=[]
+  trainers: ProfileData[] = [];
   constructor(private _http: HttpClient) {}
+  userFilter: any = { username: '' };
 
   ngOnInit(): void {
-    this._http.get<ProfileData[]>(`${environment.apiUrl}/trainer/getAllTrainers`).subscribe(
-      (data) => {
-        this.trainers=data
-        console.log(data);
-
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+    this._http
+      .get<ProfileData[]>(`${environment.apiUrl}/trainer/getAllTrainers`)
+      .subscribe(
+        (data) => {
+          this.trainers = data;
+          console.log(data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
-
 }

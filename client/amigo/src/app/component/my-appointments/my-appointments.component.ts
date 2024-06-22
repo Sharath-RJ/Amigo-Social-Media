@@ -10,6 +10,8 @@ import { environment } from '../../../../environment';
 export class MyAppointmentsComponent implements OnInit {
   constructor(private _http: HttpClient) {}
   myAppointments: any[] = [];
+  p: number = 1;
+  totalUsers: any;
 
   ngOnInit(): void {
     // get all my appointments
@@ -27,7 +29,7 @@ export class MyAppointmentsComponent implements OnInit {
       );
   }
 
-  joinMeet(link:string){
+  joinMeet(link: string) {
     window.open(link, '_blank');
   }
 }

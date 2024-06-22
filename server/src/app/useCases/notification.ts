@@ -8,4 +8,8 @@ export class notificationUseCase {
    sendNotification(message: string,receiverId:string, id: string) {  
         return this._notificatoionRepository.sendNotification(message, id, receiverId)
     }
+
+    getNotifications(id: string) {  
+        return this._notificatoionRepository.getNotifications(id)
+    }
 }

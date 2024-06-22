@@ -10,4 +10,11 @@ export class notificationMongoDB implements notificationRepository
            console.log(error) 
         }
     }
+    async getNotifications(id: string): Promise<any> {
+        try {
+            return await NotificationModel.find({recipient: id}).populate("sender", "username profilePic")
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

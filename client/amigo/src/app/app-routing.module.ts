@@ -48,7 +48,8 @@ const routes: Routes = [
   { path: 'TrainerProfileComplete', component: TrainerProfileFormComponent },
   { path: 'TrainerDashboard', component: TrainerDashboardComponent },
   { path: 'Trainers', component:ListTrainerComponent },
-  {path:'TrainerProfile/:id', component:TrainerProfileComponent}
+  {path:'TrainerProfile/:id', component:TrainerProfileComponent},
+  {path:'notifications', component:NotificationComponent}
 ];
 
 @NgModule({

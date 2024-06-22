@@ -1,7 +1,5 @@
 import express, { Router } from "express";
-import { trainerUseCase } from "../../../app/useCases/trainer";
-import { TrainerController } from "../../../adapters/controllers/trainerController";
-import { trainerRepositoryMongoDB } from "../../database/mongodb/repositories/trainerRepositoryMongoDB";
+
 import authenticate from "../middlewares/authMiddleware";
 import { notificationMongoDB } from "../../database/mongodb/repositories/notificationReppositoryMonogDB";
 import { notificationUseCase } from "../../../app/useCases/notification";
@@ -15,6 +13,7 @@ export default function notificationRouter():Router{
 
 
      router.post("/sendNotifiction", authenticate, notificationControllerinstance.sendNotification.bind(notificationControllerinstance))
+     router.get("/getAllNotifications", authenticate, notificationControllerinstance.getNotifications.bind(notificationControllerinstance))
 
    
 

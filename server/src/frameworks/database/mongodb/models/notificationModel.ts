@@ -11,11 +11,9 @@ const notificationSchema = new mongoose.Schema({
         ref: "User",
         required: true,
     },
-    type: { type: String, required: true }, // "like", "comment", etc.
-    content: { type: String, required: true }, // Brief description of event
-    post: { type: mongoose.Schema.Types.ObjectId, ref: "Post", required: true }, // Reference to the relevant post
+    message: { type: String, required: true },
     isRead: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now },
 })
 
-module.exports = mongoose.model("Notification", notificationSchema)
+export const NotificationModel = mongoose.model("Notification", notificationSchema)

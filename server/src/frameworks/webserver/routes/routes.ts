@@ -9,6 +9,7 @@ import mockRouter from "./mock"
 import uploadAudio from "../middlewares/audioMiddleware"
 import amigoRouter from "./amigo"
 import trainerRouter from "./trainer"
+import notificationRouter from "./notification"
 
 
 const routes = (app: Application) => {
@@ -21,6 +22,7 @@ const routes = (app: Application) => {
     app.use("/api/mock", mockRouter())
     app.use("/api/amigo", amigoRouter())
     app.use("/api/trainer", trainerRouter())
+    app.use("/api/notificaion",notificationRouter())
 
     
 }

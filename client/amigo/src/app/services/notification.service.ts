@@ -1,18 +1,26 @@
 // notification.service.ts
 
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationService {
-  private notificationsSubject = new Subject<string>();
-  public notifications$ = this.notificationsSubject.asObservable();
-
-  constructor() {}
+  constructor(private _http:HttpClient) {}
 
   sendNotification(message: string) {
-    this.notificationsSubject.next(message);
+    console.log('Sending notification:', message);
+    this._http.post(`${environment.apiUrl}/notification/sendNotifiction`, { message }).subscribe(
+      (data) => {
+        console.log('Notification sent successfully', data);
+      },
+      (error) => {
+        console.error('Error sending notification', error);
+      }
+    )
+
   }
 }

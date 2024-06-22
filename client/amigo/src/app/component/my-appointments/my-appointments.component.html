@@ -1,0 +1,50 @@
+<div class="flex h-screen bg-gray-900 text-white">
+    <!-- Sidebar -->
+    <div class="bg-gray-800 ">
+        <app-icon-sidebar-menu></app-icon-sidebar-menu>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col flex-1">
+        <!-- Header -->
+        <header class="bg-gray-800 p-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">My Appointments with English Trainer</h1>
+                </div>
+                <div class="flex items-center">
+                   
+                </div>
+            </div>
+        </header>
+
+        <!-- Appointments List -->
+        <div class="p-8">
+            <!-- Example Appointment Card -->
+            <div class="bg-gray-800 rounded-lg shadow-md p-6 mb-4" *ngFor="let appointment of myAppointments">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h2 class="text-xl font-semibold">{{appointment.slot.dayOfWeek}} : {{appointment.slot.timeRange}}</h2>
+                        <p class="text-gray-400">Booked on {{appointment.createdAt | date}}</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="far fa-calendar-alt text-gray-400 mr-2"></i>
+                        <span class="text-gray-400">Status:{{appointment.status}}</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="mr-4">
+                        <img [src]="appointment.trainer.profilePic" alt="Trainer"
+                            class="rounded-full h-12 w-12">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">{{appointment.trainer.fullName}}</h3>
+                        <p class="text-gray-400">{{appointment.trainer.specialization}}</p>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</div>

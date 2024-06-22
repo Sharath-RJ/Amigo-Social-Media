@@ -41,4 +41,8 @@ export class userUseCase {
     async loadProgress(id: string) {
         return await this._userRepoInterface.loadProgress(id)
     }
+
+    async getMyAppointments(id: string) {
+        return await this._userRepoInterface.getMyAppointments(id)
+    }
 }

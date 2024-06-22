@@ -39,4 +39,8 @@ export class trainerUseCase {
 
         return await this._trainerRepository.getAllAppointments(id)
     }
+
+    async updateSlot(status:string,slot:string){
+        return await this._trainerRepository.updateSlot(status,slot)
+    }
 }

@@ -1,0 +1,28 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../../environment';
+
+@Component({
+  selector: 'app-my-appointments',
+  templateUrl: './my-appointments.component.html',
+  styleUrl: './my-appointments.component.css'
+})
+export class MyAppointmentsComponent implements OnInit {
+  constructor(private _http:HttpClient) { }
+  myAppointments:any[]=[]
+
+  ngOnInit(): void {  
+   // get all my appointments
+
+   this._http.get<any[]>(`${environment.apiUrl}/user/getMyAppointments`).subscribe(
+     (data) => {
+      this.myAppointments=data
+       console.log(data)
+     },
+     (error) => {
+       console.log(error);
+     }
+   );
+
+ }
+}

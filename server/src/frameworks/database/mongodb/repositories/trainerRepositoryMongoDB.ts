@@ -69,11 +69,16 @@ export class trainerRepositoryMongoDB implements trainerRepository {
 
     async bookNow(slot: string, trainerId: string, userId: string): Promise<any> {
         try {
-            return AppointmentModel.create({
+            return await AppointmentModel.create({
                 trainer: trainerId,
                 client: userId,
                 slot: slot,
             })
+            //booking slot
+        //    return await UserModel.updateOne(
+        //         { _id: trainerId, "AvailableSlots.timeRange": slot },
+        //         { $set: { "AvailableSlots.$.status": "booked" } }
+        //     )
         } catch (error) {
             console.log(error)
         }
@@ -82,6 +87,18 @@ export class trainerRepositoryMongoDB implements trainerRepository {
   async getAllAppointments(id: string): Promise<any> {
     try {
         return await AppointmentModel.find({trainer: id}).populate("client", "username profilePic")
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async updateSlot(status: string, slot: string): Promise<any> {
+    try {
+        return await UserModel.updateOne(
+            { "AvailableSlots._id": slot },
+            { $set: { "AvailableSlots.$.status": status } },
+            { upsert: true }
+        )
     } catch (error) {
         console.log(error)
     }

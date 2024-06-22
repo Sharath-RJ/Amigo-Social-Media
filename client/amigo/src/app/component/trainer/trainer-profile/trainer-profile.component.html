@@ -11,7 +11,7 @@
                 <!-- Trainer Profile Content -->
                 <div class="bg-gray-800 profile-container">
                     <div class="profile-header">
-                        <div class="profile-img" style="background-image: url('https://via.placeholder.com/400');">
+                        <div class="profile-img" style="background-image: url({{trainerProfile.profilePic}});">
                         </div>
                         <div class="profile-info">
                             <h1>{{trainerProfile.fullName}}</h1>
@@ -89,7 +89,13 @@
                                         Now</button>
                                 </div>
                                 <div class="time-slots flex " *ngFor="let slot of trainerProfile.AvailableSlots">
-                                    <div   (click)="selectSlot(slot)"   [ngClass]="{ 'bg-blue-500': slot === selectedSlot, 'bg-gray-700': slot !== selectedSlot}" class="time-slot">{{slot.dayOfWeek}}, {{slot.timeRange}}</div>
+                                    <div (click)="!isBooked(slot) && selectSlot(slot)" [ngClass]="{
+                                          'bg-blue-500 cursor-pointer': slot === selectedSlot && !isBooked(slot),
+                                          'bg-gray-700 cursor-pointer': slot !== selectedSlot && !isBooked(slot),
+                                          'bg-gray-400 cursor-not-allowed': isBooked(slot)
+                                        }" class="time-slot p-2 rounded transition duration-300">
+                                        {{slot.dayOfWeek}}, {{slot.timeRange}}
+                                    </div>
 
                                 </div>
                             </div>
@@ -102,20 +108,20 @@
 
 
                     <!-- Reviews Section -->
-                    <div class="reviews-container">
+                    <!-- <div class="reviews-container">
                         <div class="review-header">
                             <h2>Reviews</h2>
                             <button
                                 class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">Write
                                 a Review</button>
                         </div>
-                        <!-- Review Form (Hidden initially) -->
+                      
                         <div class="review-form hidden">
                             <textarea class="bg-gray-800 text-gray-100 rounded-md p-2 mb-2 w-full"
                                 placeholder="Write your review..." rows="4"></textarea>
                             <button class="submit-btn">Submit Review</button>
                         </div>
-                        <!-- Example Reviews (Replace with dynamic data) -->
+                      
                         <div class="mt-4">
                             <div class="flex items-center mb-2">
                                 <div class="flex-shrink-0">
@@ -229,7 +235,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 

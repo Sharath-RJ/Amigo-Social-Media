@@ -67,6 +67,7 @@ export default function userRoute(): Router {
     )
 
     router.get("/loadProgress", authenticate, userControllerInstance.loadProgress.bind(userControllerInstance))
+    router.get("/getMyAppointments", authenticate, userControllerInstance.getMyAppointments.bind(userControllerInstance))
 
     return router
 }

@@ -1,4 +1,5 @@
 import { UserRepoInterface } from "../../../../app/repositories/userRepoInterface"
+import { AppointmentModel } from "../models/appointments"
 import { MockTest } from "../models/mockTest"
 import { UserModel } from "../models/userModel"
 
@@ -127,6 +128,14 @@ export class userRepoMongoDB implements UserRepoInterface {
     async loadProgress(id: string): Promise<any> {
         try {
             return await MockTest.find({ user: id })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async getMyAppointments(id:string): Promise<any> {
+        try {
+            return await AppointmentModel.find({client: id}).populate("trainer", "fullName profilePic specialization")
         } catch (error) {
             console.log(error)
         }

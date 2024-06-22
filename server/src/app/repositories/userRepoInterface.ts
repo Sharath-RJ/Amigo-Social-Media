@@ -12,4 +12,5 @@ export interface UserRepoInterface {
     stopLive(link: String, id: string): Promise<any>
     getLoggedInUserDetails(id: string): Promise<any>
     loadProgress(id: string): Promise<any>
+    getMyAppointments(id: string): Promise<any>
 }

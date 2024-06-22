@@ -14,6 +14,7 @@ const  Appointment = new Schema({
         dayOfWeek: { type: String, required: true },
         timeRange: { type: String, required: true }
     },
+    status: { type: String, default: 'booked' },
     createdAt: { type: Date, default: Date.now }
 });
 

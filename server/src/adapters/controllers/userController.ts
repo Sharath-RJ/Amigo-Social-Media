@@ -124,4 +124,16 @@ export class userConteoller {
             console.log(error)
         }
     }
+
+    async getMyAppointments(req: customRequest, res: Response): Promise<void> {
+        try {
+            const appointments = await this._userUseCase.getMyAppointments( req.user?._id)
+            console.log(appointments)
+            if (appointments) {
+                res.status(200).json(appointments)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

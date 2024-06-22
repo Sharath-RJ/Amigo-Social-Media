@@ -20,7 +20,7 @@
         experience: number
         qualifications: string
         timeZone: string
-        AvailableSlots: [{ dayOfWeek: String; timeRange: String }]
+        AvailableSlots: [{ dayOfWeek: String; timeRange: String, status: String }], 
         hourlyRate: number
         createdAt: Date
     }
@@ -49,7 +49,7 @@
         qualifications:{type:String},
         timeZone: {type:String},
         hourlyRate: {type:Number},
-        AvailableSlots:[{dayOfWeek:String, timeRange:String}],
+        AvailableSlots:[{dayOfWeek:String, timeRange:String, status:String}],
         createdAt: { type: Date, default: Date.now },
     })
 

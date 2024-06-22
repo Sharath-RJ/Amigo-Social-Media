@@ -23,6 +23,7 @@ import { TrainerDashboardComponent } from './component/trainer/trainer-dashboard
 import { ListTrainerComponent } from './component/trainer/list-trainer/list-trainer.component';
 import { TrainerProfileComponent } from './component/trainer/trainer-profile/trainer-profile.component';
 import { ProgressComponent } from './component/progress/progress.component';
+import { MyAppointmentsComponent } from './component/my-appointments/my-appointments.component';
 
 
 const routes: Routes = [
@@ -48,10 +49,11 @@ const routes: Routes = [
   { path: 'Amigo', component: TalkToMeComponent },
   { path: 'TrainerProfileComplete', component: TrainerProfileFormComponent },
   { path: 'TrainerDashboard', component: TrainerDashboardComponent },
-  { path: 'Trainers', component:ListTrainerComponent },
-  {path:'TrainerProfile/:id', component:TrainerProfileComponent},
-  {path:'notifications', component:NotificationComponent},
-  {path:'progress', component:ProgressComponent}
+  { path: 'Trainers', component: ListTrainerComponent },
+  { path: 'TrainerProfile/:id', component: TrainerProfileComponent },
+  { path: 'notifications', component: NotificationComponent },
+  { path: 'progress', component: ProgressComponent },
+  { path: 'myAppointments', component:MyAppointmentsComponent },
 ];
 
 @NgModule({

@@ -69,6 +69,7 @@ export class TrainerController {
      try {
        const {slot, trainerId}=  req.body
        const booked= await this._trainerUseCase.bookNow(slot, trainerId, req.user?._id)
+       console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",booked)
        if(booked)
           res.status(200).json(booked)
      } catch (error) {
@@ -83,6 +84,21 @@ export class TrainerController {
         if(appointments){
           res.status(200).json(appointments)
         }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async updateSlot(req:customRequest, res:Response):Promise<any> {
+    try {
+      const{status}= req.body
+      const{slot}=req.params
+      console.log(status)
+      console.log(slot)
+      const slotUpdated=await this._trainerUseCase.updateSlot(status,slot)
+      if(slotUpdated){
+        res.status(200).json(slotUpdated)
+      }
     } catch (error) {
       console.log(error)
     }

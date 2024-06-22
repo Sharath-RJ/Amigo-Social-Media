@@ -65,6 +65,7 @@ import { AddTimeSlotComponent } from './component/modal/add-time-slot/add-time-s
 import { ListTrainerComponent } from './component/trainer/list-trainer/list-trainer.component';
 import { TrainerProfileComponent } from './component/trainer/trainer-profile/trainer-profile.component';
 import { ProgressComponent } from './component/progress/progress.component';
+import { MyAppointmentsComponent } from './component/my-appointments/my-appointments.component';
 
 
 
@@ -117,6 +118,7 @@ import { ProgressComponent } from './component/progress/progress.component';
     ListTrainerComponent,
     TrainerProfileComponent,
     ProgressComponent,
+    MyAppointmentsComponent,
   ],
   imports: [
     BrowserModule,

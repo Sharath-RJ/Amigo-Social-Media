@@ -21,6 +21,11 @@
         <img [src]="picture" alt="Profile Picture" class="w-10 h-10 rounded-full border border-gray-700">
         <p class="text-sm font-medium text-white ml-4">Hey! {{name}}</p>
       </div>
+      <div routerLink="/myAppointments" class="flex items-center">
+        
+        <i class="far fa-calendar-alt text-xl cursor-pointer"></i>
+
+      </div>
       <div routerLink="/notifications" class="relative">
         <i class="fas fa-bell text-xl cursor-pointer"></i>
         <span class="absolute top-0 right-0 inline-block w-2.5 h-2.5 bg-red-600 rounded-full"></span>

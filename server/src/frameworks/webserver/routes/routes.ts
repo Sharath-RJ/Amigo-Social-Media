@@ -22,7 +22,7 @@ const routes = (app: Application) => {
     app.use("/api/mock", mockRouter())
     app.use("/api/amigo", amigoRouter())
     app.use("/api/trainer", trainerRouter())
-    app.use("/api/notificaion",notificationRouter())
+    app.use("/api/notification", notificationRouter())
 
     
 }

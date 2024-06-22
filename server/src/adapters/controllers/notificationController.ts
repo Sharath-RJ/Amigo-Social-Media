@@ -12,8 +12,8 @@ export class notificationController {
 
     async sendNotification(req: customRequest, res: Response): Promise<void> {
         try {
-            const { message } = req.body;
-            const notified = await this._notificationUseCase.sendNotification(message, req.user?._id);
+            const { message, receiverId } = req.body
+            const notified = await this._notificationUseCase.sendNotification(message,receiverId, req.user?._id);
             res.json(notified);
         } catch (error) {
             res.status(500).json({ error: 'An error occurred while sending the notification.' });

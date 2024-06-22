@@ -11,9 +11,9 @@ import { environment } from '../../../environment';
 export class NotificationService {
   constructor(private _http:HttpClient) {}
 
-  sendNotification(message: string) {
+  sendNotification(message: string, receiverId: string) {
     console.log('Sending notification:', message);
-    this._http.post(`${environment.apiUrl}/notification/sendNotifiction`, { message }).subscribe(
+    this._http.post(`${environment.apiUrl}/notification/sendNotifiction`, { message, receiverId }).subscribe(
       (data) => {
         console.log('Notification sent successfully', data);
       },

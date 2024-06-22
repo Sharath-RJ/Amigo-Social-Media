@@ -14,7 +14,7 @@ export default function notificationRouter():Router{
      const notificationControllerinstance = new notificationController(notifiactionUseCaseINstance)
 
 
-     router.post("/sendNotification", authenticate, notificationControllerinstance.sendNotification.bind(notificationControllerinstance))
+     router.post("/sendNotifiction", authenticate, notificationControllerinstance.sendNotification.bind(notificationControllerinstance))
 
    
 

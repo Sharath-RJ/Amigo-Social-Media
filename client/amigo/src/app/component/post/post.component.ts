@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output, output } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-post',
@@ -17,7 +18,7 @@ export class PostComponent implements OnInit {
   @Output() showAllCommentsEvent = new EventEmitter<string>();
   @Output() showAllLikesEvent = new EventEmitter<string>();
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient, private notification:NotificationService) {}
   posts: any = [];
   loggedInUser: string | null = sessionStorage.getItem('loggedInUser');
 
@@ -89,6 +90,7 @@ export class PostComponent implements OnInit {
           if (post) {
             post.likes.push(this.userId); // Update the likes array
             this.postLiked[postId] = true; // Update the like status
+            this.notification.sendNotification("Your post has been liked",post.user);
           }
         },
         (error) => {

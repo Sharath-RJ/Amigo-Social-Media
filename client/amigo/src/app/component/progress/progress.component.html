@@ -1,0 +1,31 @@
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+    
+           <app-icon-sidebar-menu></app-icon-sidebar-menu>
+            
+        
+
+        <!-- Main Content -->
+        <div class="w-3/4 p-6 overflow-y-auto">
+            <div class="flex justify-end mb-4">
+                <!-- <button class="bg-blue-600 px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300">Show
+                    Progress</button> -->
+            </div>
+
+            <!-- Progress Container -->
+            <div class="space-y-4" *ngFor="let item of progress">
+                <!-- Progress Item 1 -->
+                <div class="bg-gray-800 p-4 rounded-lg shadow hover:bg-gray-700 transition duration-300">
+                    <div class="text-lg font-bold mb-2">{{item.createdAt |  date}}</div>
+                    <p><strong>Total Score:</strong>{{item.score}}</p>
+                    <!-- <p><strong>Star Rating:</strong> 4</p> -->
+                    <p><strong>Proficiency Level:</strong>{{item.proficiencyLevel}}</p>
+                    <p><strong>Feedback:</strong>{{item.feedback}}</p>
+                </div>
+
+              
+            </div>
+        </div>
+    </div>
+</body>

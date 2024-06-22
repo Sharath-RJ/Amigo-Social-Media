@@ -1,4 +1,5 @@
 import { UserRepoInterface } from "../../../../app/repositories/userRepoInterface"
+import { MockTest } from "../models/mockTest"
 import { UserModel } from "../models/userModel"
 
 
@@ -118,6 +119,14 @@ export class userRepoMongoDB implements UserRepoInterface {
     async getLoggedInUserDetails(id: string) {
         try {
             return await UserModel.findById(id).populate('following followers')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async loadProgress(id: string): Promise<any> {
+        try {
+            return await MockTest.find({ user: id })
         } catch (error) {
             console.log(error)
         }

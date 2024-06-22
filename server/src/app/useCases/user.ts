@@ -38,4 +38,7 @@ export class userUseCase {
     async getLoggedInUserDetails(id: string) {
         return await this._userRepoInterface.getLoggedInUserDetails(id)
     }
+    async loadProgress(id: string) {
+        return await this._userRepoInterface.loadProgress(id)
+    }
 }

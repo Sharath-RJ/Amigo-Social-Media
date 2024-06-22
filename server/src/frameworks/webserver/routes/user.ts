@@ -66,5 +66,7 @@ export default function userRoute(): Router {
         )
     )
 
+    router.get("/loadProgress", authenticate, userControllerInstance.loadProgress.bind(userControllerInstance))
+
     return router
 }

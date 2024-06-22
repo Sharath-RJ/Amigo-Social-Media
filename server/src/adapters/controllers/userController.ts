@@ -113,4 +113,15 @@ export class userConteoller {
         }
        
     }
+
+    async loadProgress(req: customRequest, res: Response): Promise<void> {
+        try {
+            const progress = await this._userUseCase.loadProgress(req.user?._id)
+            if (progress) {
+                res.status(200).json(progress)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

@@ -14,9 +14,8 @@
                 <div class="flex space-x-3 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300">
                     <img [src]="notification.sender.profilePic" class="rounded-full" width="30px" height="30px" alt="">
                     <div>{{notification.message}} by {{notification.sender.username}}</div>
-                    
+                    <i class="text-gray-400 ml-auto">{{notification.createdAt | date}}</i>
                 </div>
-            
                
             </div>
         </div>

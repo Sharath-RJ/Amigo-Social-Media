@@ -56,13 +56,22 @@ export class TrainerProfileComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          this._http.patch(`${environment.apiUrl}/trainer/updateSlot/${this.selectedSlot._id}`, {status: 'booked'}).subscribe((data)=>{
-            console.log(data);
-            this._snackBar.open('Appointment Booked Successfully', '', {
-              duration: 3000,
-              horizontalPosition: 'center',
-              verticalPosition: 'top',
-            });
+          this._http.patch(`${environment.apiUrl}/trainer/updateSlot/${this.selectedSlot._id}`, {status: 'booked'}).subscribe((data:any)=>{
+            
+            if (data.modifiedCount == 0) {
+               this._snackBar.open('Appointment Already Booked', '', {
+                 duration: 3000,
+                 horizontalPosition: 'center',
+                 verticalPosition: 'top',
+               });
+            }
+              this._snackBar.open('Appointment Booked Successfully', '', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              });
+          
+            
           }, (err)=>{
           console.log(err);
           })

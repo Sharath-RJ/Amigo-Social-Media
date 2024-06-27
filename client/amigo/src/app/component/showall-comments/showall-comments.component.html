@@ -11,7 +11,7 @@
                         <img [src]=" comment.postedBy.profilePic " alt="User Avatar" class="h-8 w-8 rounded-full mr-2">
                         <span class="font-semibold text-gray-200">{{ comment.postedBy.username }}</span>
                     <span class=" inline-block max-w-xs break-words whitespace-normal text-container text-gray-400 ml-2">{{ comment.text }}</span>
-
+                    <span class="text-gray-400 ml-auto text-sm">{{ comment.createdAt | date }}</span>
                     </div>
                 </li>
             </ul>

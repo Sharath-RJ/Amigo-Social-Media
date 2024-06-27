@@ -34,6 +34,7 @@ const postSchema = new Schema<IPost>(
             {
                 text: { type: String },
                 postedBy: { type: Schema.Types.ObjectId, ref: "User" },
+                createdAt: { type: Date, default: Date.now },
             },
         ], // Use the comment schema
     },

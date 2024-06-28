@@ -2,16 +2,27 @@
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-xl font-semibold text-purple-400 mb-4">Add Time Slot</h2>
         <form (ngSubmit)="addTimeSlot()">
-            <div class="form-group">
-                <label for="dayOfWeek" class="block mb-1">Day of Week:</label>
-                <input type="text" id="dayOfWeek" [(ngModel)]="dayOfWeek" name="dayOfWeek"
-                    class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+            <div class="form-group mb-4">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Day of Week</mat-label>
+                    <input matInput type="text" [(ngModel)]="dayOfWeek" name="dayOfWeek">
+                </mat-form-field>
             </div>
-            <div class="form-group">
-                <label for="timeRange" class="block mb-1">Time Range:</label>
-                <input type="text" id="timeRange" [(ngModel)]="timeRange" name="timeRange"
-                    class="w-full p-2 rounded bg-gray-700 border border-gray-600">
-                <small class="text-gray-400">Format: HH:mm-HH:mm (e.g., 09:00-11:00)</small>
+            <div class="form-group mb-4">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>Start Time</mat-label>
+                    <input matInput [matDatepicker]="startTimePicker" [(ngModel)]="startTime" name="startTime">
+                    <mat-datepicker-toggle matSuffix [for]="startTimePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startTimePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-group mb-4">
+                <mat-form-field appearance="fill" class="w-full">
+                    <mat-label>End Time</mat-label>
+                    <input matInput [matDatepicker]="endTimePicker" [(ngModel)]="endTime" name="endTime">
+                    <mat-datepicker-toggle matSuffix [for]="endTimePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endTimePicker></mat-datepicker>
+                </mat-form-field>
             </div>
             <div class="flex justify-end mt-4">
                 <button type="button" class="bg-gray-600 text-white px-4 py-2 rounded mr-2 hover:bg-gray-700"

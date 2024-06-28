@@ -66,6 +66,9 @@ import { ListTrainerComponent } from './component/trainer/list-trainer/list-trai
 import { TrainerProfileComponent } from './component/trainer/trainer-profile/trainer-profile.component';
 import { ProgressComponent } from './component/progress/progress.component';
 import { MyAppointmentsComponent } from './component/my-appointments/my-appointments.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -137,6 +140,10 @@ import { MyAppointmentsComponent } from './component/my-appointments/my-appointm
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+
   ],
 
   providers: [

@@ -32,8 +32,6 @@ export class TrainerProfileComponent implements OnInit {
       this.trainerId = params.get('id');
     });
 
-    //getting trainer profile
-    //pk_test_51PWGZxRt3sCPNpRIJRxThlLsHAEuCknUkirKbupCKCRhmuJSMB4xoPO9raiK6YVyQ0Lg1UPF3sWELcYeDDvDry6X00iLFOfiV0
 
     this._http
       .get(`${environment.apiUrl}/trainer/getTrainerProfile/${this.trainerId}`)
@@ -48,12 +46,7 @@ export class TrainerProfileComponent implements OnInit {
       );
 
     this.loadStripe();
-    // this.stripe = await loadStripe(
-    //   'pk_test_51PWGZxRt3sCPNpRIJRxThlLsHAEuCknUkirKbupCKCRhmuJSMB4xoPO9raiK6YVyQ0Lg1UPF3sWELcYeDDvDry6X00iLFOfiV0'
-    // );
-    // const elements = this.stripe?.elements();
-    // this.card = elements?.create('card');
-    // this.card.mount('#card-element');
+  
   }
 
   selectSlot(slot: string) {

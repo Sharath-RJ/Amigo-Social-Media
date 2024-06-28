@@ -16,6 +16,7 @@
                         <div class="profile-info">
                             <h1>{{trainerProfile.fullName}}</h1>
                             <p>{{trainerProfile.specialization}}</p>
+                            <div id="card-element"></div>
                             <!-- Star Rating (placeholder) -->
                             <div class="flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400 mr-1"
@@ -84,7 +85,7 @@
                             <div class="booking-container">
                                 <div class="booking-header">
                                     <h2>Book an Appointment</h2>
-                                    <button (click)="bookNow()"
+                                    <button (click)="pay(trainerProfile.hourlyRate)"
                                         class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">Book
                                         Now</button>
                                 </div>
@@ -101,6 +102,7 @@
                             </div>
                         </div>
                     </div>
+                   
 
 
 
@@ -244,4 +246,6 @@
             </div>
         </div>
     </div>
+
+   
 </body>

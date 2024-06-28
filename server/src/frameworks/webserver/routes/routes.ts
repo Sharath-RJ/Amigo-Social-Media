@@ -10,6 +10,7 @@ import uploadAudio from "../middlewares/audioMiddleware"
 import amigoRouter from "./amigo"
 import trainerRouter from "./trainer"
 import notificationRouter from "./notification"
+import paymentRouter from "./payment"
 
 
 const routes = (app: Application) => {
@@ -23,6 +24,7 @@ const routes = (app: Application) => {
     app.use("/api/amigo", amigoRouter())
     app.use("/api/trainer", trainerRouter())
     app.use("/api/notification", notificationRouter())
+    app.use("/api/payment", paymentRouter())
 
     
 }

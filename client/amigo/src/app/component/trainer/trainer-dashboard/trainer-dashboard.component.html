@@ -102,10 +102,11 @@
                                         <button (click)="joinMeet()"
                                             class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transform transition duration-300">Join Meet</button>
                                     </td>
-                                    <h2 class="text-xl font-semibold  text-purple-400 mb-4 text-center" *ngIf="slots.length == 0">No Appointments</h2>
+                                   
                                 </tr>
+                                <h2 class="text-xl font-semibold  text-purple-400 mb-4 text-center" *ngIf="slots.length == 0">No Appointments</h2>
                                  <!--Pagination-->
-                                <div class="flex justify-center">
+                                <div *ngIf="slots.length!=0" class="flex justify-center">
                                     <pagination-controls (pageChange)="p = $event" previousLabel="Prev" nextLabel="Next"></pagination-controls>
                                 </div>
                                

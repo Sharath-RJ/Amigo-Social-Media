@@ -2,6 +2,7 @@
   import { Component, OnInit } from '@angular/core';
   import { environment } from '../../../../../environment';
 import { User } from '../../user-list/user-list.component';
+
 interface ProfileData {
   fullName: string;
   bio: string;
@@ -21,7 +22,10 @@ interface ProfileData {
     styleUrl: './trainer-dashboard.component.css',
   })
   export class TrainerDashboardComponent implements OnInit {
-    constructor(private _http: HttpClient) {}
+    constructor(
+      private _http: HttpClient,
+  
+    ) {}
     profileData: ProfileData = {
       profilePic: '',
       fullName: '',
@@ -68,4 +72,6 @@ interface ProfileData {
       const gMeetLink = this.profileData.MeetLink;
       window.open(gMeetLink, '_blank');
     }
+
+   
   }

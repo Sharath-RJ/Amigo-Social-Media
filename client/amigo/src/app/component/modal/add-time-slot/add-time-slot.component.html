@@ -4,20 +4,34 @@
         <form (ngSubmit)="addTimeSlot()">
             <div class="form-group">
                 <label for="dayOfWeek" class="block mb-1">Day of Week:</label>
-                <input type="text" id="dayOfWeek" [(ngModel)]="dayOfWeek" name="dayOfWeek"
+                <select id="dayOfWeek" [(ngModel)]="dayOfWeek" name="dayOfWeek"
+                    class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="startTime" class="block mb-1">Start Time:</label>
+                <input type="time" id="startTime" [(ngModel)]="startTime" name="startTime"
                     class="w-full p-2 rounded bg-gray-700 border border-gray-600">
             </div>
             <div class="form-group">
-                <label for="timeRange" class="block mb-1">Time Range:</label>
-                <input type="text" id="timeRange" [(ngModel)]="timeRange" name="timeRange"
+                <label for="endTime" class="block mb-1">End Time:</label>
+                <input type="time" id="endTime" [(ngModel)]="endTime" name="endTime"
                     class="w-full p-2 rounded bg-gray-700 border border-gray-600">
-                <small class="text-gray-400">Format: HH:mm-HH:mm (e.g., 09:00-11:00)</small>
             </div>
             <div class="flex justify-end mt-4">
                 <button type="button" class="bg-gray-600 text-white px-4 py-2 rounded mr-2 hover:bg-gray-700"
-                    (click)="closeModal()">Cancel</button>
+                    (click)="closeModal()">Cancel
+                </button>
                 <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Add Time
-                    Slot</button>
+                    Slot
+                </button>
             </div>
         </form>
     </div>

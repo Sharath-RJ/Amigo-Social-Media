@@ -66,7 +66,8 @@ import { ListTrainerComponent } from './component/trainer/list-trainer/list-trai
 import { TrainerProfileComponent } from './component/trainer/trainer-profile/trainer-profile.component';
 import { ProgressComponent } from './component/progress/progress.component';
 import { MyAppointmentsComponent } from './component/my-appointments/my-appointments.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -137,6 +138,8 @@ import { MyAppointmentsComponent } from './component/my-appointments/my-appointm
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
 
   providers: [

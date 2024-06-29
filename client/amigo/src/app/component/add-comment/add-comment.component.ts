@@ -33,6 +33,7 @@ export class AddCommentComponent {
         (data) => {
         this.comment = ' ';
         this.commentsAdded.emit(data);
+        //notify commentation
         },
         (error) => {
           console.log(error);

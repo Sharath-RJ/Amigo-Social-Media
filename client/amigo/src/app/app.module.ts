@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { BaseChartDirective} from 'ng2-charts';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+// Component imports
 import { LoginComponentComponent } from './component/login-component/login-component.component';
 import { RegisterComponentComponent } from './component/register-component/register-component.component';
 import { HomeComponentComponent } from './component/home-component/home-component.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FeedComponent } from './component/feed/feed.component';
 import { PostComponent } from './component/post/post.component';
@@ -21,8 +34,6 @@ import { AddPostComponent } from './component/add-post/add-post.component';
 import { AdminloginComponent } from './component/admin/adminlogin/adminlogin.component';
 import { AdmindashboardComponent } from './component/admin/admindashboard/admindashboard.component';
 import { MenuSidebarComponent } from './component/admin/menu-sidebar/menu-sidebar.component';
-
-import { MatTableModule } from '@angular/material/table';
 import { UsersListComponent } from './component/admin/users-list/users-list.component';
 import { PostsListComponent } from './component/admin/posts-list/posts-list.component';
 import { PostsDetailsComponent } from './component/admin/posts-details/posts-details.component';
@@ -36,20 +47,9 @@ import { UserCardComponent } from './component/user-card/user-card.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { VideocallComponent } from './component/videocall/videocall.component';
 import { NotificationComponent } from './component/notification/notification.component';
-
 import { IconSidebarMenuComponent } from './component/icon-sidebar-menu/icon-sidebar-menu.component';
-import { FilterPipeModule } from 'ngx-filter-pipe';
 import { SearchComponent } from './component/search/search.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { AuthInterceptor } from './auth.interceptor';
 import { EditPostModalComponent } from './component/edit-post-modal/edit-post-modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule, MatIconAnchor } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 import { FollowersComponent } from './component/modal/followers/followers.component';
 import { FollowingComponent } from './component/modal/following/following.component';
 import { LiveStreamComponent } from './component/live-stream/live-stream.component';
@@ -66,10 +66,8 @@ import { ListTrainerComponent } from './component/trainer/list-trainer/list-trai
 import { TrainerProfileComponent } from './component/trainer/trainer-profile/trainer-profile.component';
 import { ProgressComponent } from './component/progress/progress.component';
 import { MyAppointmentsComponent } from './component/my-appointments/my-appointments.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { ChartModule } from 'angular-highcharts'; 
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -125,25 +123,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     MatSnackBarModule,
     MatTableModule,
-    FilterPipeModule,
-    SlickCarouselModule,
-    CarouselModule,
-    NgxPaginationModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    BaseChartDirective,
+    FilterPipeModule,
+    SlickCarouselModule,
+    CarouselModule,
+    NgxPaginationModule,
+    ChartModule,
   ],
-
   providers: [
-    provideAnimationsAsync(),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

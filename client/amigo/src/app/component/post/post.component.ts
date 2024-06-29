@@ -135,6 +135,7 @@ export class PostComponent implements OnInit {
       const updatedPosts = [...this.posts];
       updatedPosts[postIndex].comments.push(this.userId);
       this.posts = updatedPosts;
+      this.notification.sendNotification("Your post has a new comment", this.posts[postIndex].user);
     }
   }
 

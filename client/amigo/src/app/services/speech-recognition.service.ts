@@ -8,6 +8,7 @@ import { environment } from '../../../environment';
 export class SpeechRecognitionService {
   private recognition: any;
   public text: string = '';
+  
 
   constructor(private zone: NgZone, private http: HttpClient) {
     const { webkitSpeechRecognition }: any = window as any;
@@ -35,11 +36,15 @@ export class SpeechRecognitionService {
   }
 
   clearText() {
-    this.text = ''; 
+    this.text = '';
   }
   sendTextToBackend(question: string) {
     return this.http.post<any>(`${environment.apiUrl}/amigo/analyze-text`, {
       question,
     });
+  }
+
+  setOnResult(callback: (event: any) => void): void {
+    this.recognition.onresult = callback;
   }
 }

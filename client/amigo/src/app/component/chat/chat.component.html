@@ -91,7 +91,7 @@
             <div [style.width.%]="messageProgress[i]" class="absolute top-0 left-0 h-full bg-gray-800"></div>
         </div>
         <span class="text-xs text-gray-600">{{ formatTime(messageDurations[i]) }}</span>
-        <button (click)="checkFulency()" class="w-5 h-5 text-gray-600">Check Fulency</button>
+        <button  class="w-5 h-5 text-gray-600">Check Fulency</button>
     </div>
 
             
@@ -112,6 +112,8 @@
                      <button (click)="checkGrammar()" type="button"
                         class="ml-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">Grammar
                         Doctor</button> 
+                     <button (click)="openModal()" type="button"
+                        class="ml-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">Evaluate Fluency</button> 
                     <i *ngIf="resording" (click)="stopRecording()"
                         class="fas fa-microphone text-xl text-red-400  cursor-pointer ml-4"></i>
                     <i *ngIf="!resording" (click)="startRecording()"

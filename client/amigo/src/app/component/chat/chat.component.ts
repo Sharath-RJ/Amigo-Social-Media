@@ -16,6 +16,8 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import * as recordrtc from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
 import { _getShadowRoot } from '@angular/cdk/platform';
+import { MatDialog } from '@angular/material/dialog';
+import { FluencyTestComponent } from '../modal/fluency-test/fluency-test.component';
 
 @Component({
   selector: 'app-chat',
@@ -52,8 +54,13 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
     private route: ActivatedRoute,
     private _http: HttpClient,
     private socketService: SocketService,
-    private domsanitize: DomSanitizer
+    private domsanitize: DomSanitizer,
+    public dialog: MatDialog
   ) {}
+
+  openModal(){
+    const dialogRef = this.dialog.open(FluencyTestComponent)
+  }
   checkFulency(){
     this._http
       .post('http://localhost:5000/api/chat/checkFluency', {

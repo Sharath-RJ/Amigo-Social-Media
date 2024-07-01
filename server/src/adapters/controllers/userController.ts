@@ -125,6 +125,17 @@ export class userConteoller {
         }
     }
 
+    async loadFluency(req: customRequest, res: Response): Promise<void> {
+        try {
+            const fluency = await this._userUseCase.loadFluency(req.user?._id)
+            if (fluency) {
+                res.status(200).json(fluency)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async getMyAppointments(req: customRequest, res: Response): Promise<void> {
         try {
             const appointments = await this._userUseCase.getMyAppointments( req.user?._id)

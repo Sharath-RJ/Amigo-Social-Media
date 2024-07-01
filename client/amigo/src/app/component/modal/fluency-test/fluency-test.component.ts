@@ -57,6 +57,7 @@ export class FluencyTestComponent {
       // handle speech recognition results
       const transcript = event.results[event.results.length - 1][0].transcript;
       this.text += transcript; // append recognized text
+      console.log('Transcript: ', this.text); // Debug log
     };
 
     recognition.onerror = (event:any) => {

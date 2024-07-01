@@ -28,7 +28,7 @@ export class fluencyService implements fluencyServiceInterface {
   "analysis": {
     "english_sentence_structures": "Provide feedback on sentence structures.",
     "filler_and_repetitive_words": "Comment on filler words and repetitions.",
-    "fluency_score": "Fluency score out of 10 with an explanation.",
+    "fluency_score":10,
     "feedback_for_improvement": [
       "Suggestions for improvement 1.",
       "Suggestions for improvement 2.",

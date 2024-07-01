@@ -16,9 +16,13 @@ import { DatePipe } from '@angular/common';
 })
 export class ProgressComponent implements OnInit {
   progress: any[] = [];
+  fluency: any[] = [];
   dates: any[] = [];
+  fluencyDate: any[] = [];
+  fluencyScore: any[] = [];
   scores: any[] = [];
   linechart: Chart | undefined;
+  barchart: Chart | undefined;
   proficiencyLevels: any[] = [];
 
   constructor(private _http: HttpClient, private datePipe: DatePipe) {}
@@ -28,6 +32,18 @@ export class ProgressComponent implements OnInit {
       (data) => {
         this.progress = data;
         this.fetchGraohData(this.progress);
+    
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    this._http.get<any[]>(`${environment.apiUrl}/user/loadFluency`).subscribe(
+      (data) => {
+        console.log(data);
+        this.fluency = data;
+        this.createBarChart(this.fluency);
       },
       (err) => {
         console.log(err);
@@ -40,7 +56,8 @@ export class ProgressComponent implements OnInit {
       this.datePipe.transform(item.createdAt)
     );
     this.scores = progress.map((item) => item.score);
-     this.proficiencyLevels = progress.map((item) => item.proficiencyLevel);
+    console.log('Scores:', this.scores);
+    this.proficiencyLevels = progress.map((item) => item.proficiencyLevel);
     console.log('Dates:', this.dates);
 
     const darkModeTheme = {
@@ -76,9 +93,13 @@ export class ProgressComponent implements OnInit {
       tooltip: {
         backgroundColor: 'rgba(0, 0, 0, 0.85)',
         style: { color: '#FFFFFF' },
-       formatter: function(): string {
-                 return `<b>Date:</b> ${(<any>this).x}<br/><b>Score:</b> ${(<any>this).y}<br/><b>Proficiency Level:</b> ${(<any>this).point.proficiencyLevel}`;
-         },
+        formatter: function (): string {
+          return `<b>Date:</b> ${(<any>this).x}<br/><b>Score:</b> ${
+            (<any>this).y
+          }<br/><b>Proficiency Level:</b> ${
+            (<any>this).point.proficiencyLevel
+          }`;
+        },
       },
       plotOptions: {
         series: {
@@ -190,6 +211,50 @@ export class ProgressComponent implements OnInit {
             proficiencyLevel: this.proficiencyLevels[index], // Add this line
           })),
           color: 'yellow',
+        } as any,
+      ],
+    });
+  }
+
+  createBarChart(fluency:any[]): void {
+
+    this.fluencyDate =fluency.map((item) =>
+      this.datePipe.transform(item.createdAt)
+    );
+    this.fluencyScore = fluency.map((item) => Number( item.analysis.fluency_score));
+    console.log("fffffffffffffffffsssssssssss",this.fluencyScore);
+   
+
+
+    this.barchart = new Chart({
+      chart: {
+        type: 'bar',
+        backgroundColor: '#111827',
+      },
+      title: {
+        text: 'Fluency Levels',
+        style: {
+          color: '#FFFFFF',
+          textTransform: 'uppercase',
+          fontSize: '20px',
+        } as any,
+      },
+      xAxis: {
+        categories: this.fluencyDate,
+        labels: { style: { color: '#FFFFFF' } },
+        lineColor: 'transparent',
+        gridLineWidth: 0,
+        tickColor: '#707073',
+      },
+      yAxis: {
+        title: { text: 'Fluency Level', style: { color: '#FFFFFF' } as any },
+        labels: { style: { color: '#FFFFFF' } },
+      },
+      series: [
+        {
+          name: 'Fluency Level',
+          data: this.fluencyScore,
+          color: 'lightblue',
         } as any,
       ],
     });

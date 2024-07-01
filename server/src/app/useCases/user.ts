@@ -42,6 +42,12 @@ export class userUseCase {
         return await this._userRepoInterface.loadProgress(id)
     }
 
+    async loadFluency(id: string) {
+        return await this._userRepoInterface.loadFluency(id)
+    }
+
+   
+
     async getMyAppointments(id: string) {
         return await this._userRepoInterface.getMyAppointments(id)
     }

@@ -1,5 +1,6 @@
 import { UserRepoInterface } from "../../../../app/repositories/userRepoInterface"
 import { AppointmentModel } from "../models/appointments"
+import { fluencyModel } from "../models/flulency"
 import { MockTest } from "../models/mockTest"
 import { UserModel } from "../models/userModel"
 
@@ -130,6 +131,14 @@ export class userRepoMongoDB implements UserRepoInterface {
             return await MockTest.find({ user: id })
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    async loadFluency(id: string) {
+        try {
+            return await fluencyModel.find({ user: id })
+        } catch (error) {
+          console.log(error)  
         }
     }
 

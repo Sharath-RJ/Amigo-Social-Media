@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output, output } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NotificationService } from '../../services/notification.service';
+import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-post',
@@ -53,7 +54,7 @@ export class PostComponent implements OnInit {
     if (loggedInUserId) {
       this.userId = JSON.parse(loggedInUserId)._id;
     }
-    this._http.get(`http://localhost:5000/api/post/getAllPosts`).subscribe(
+    this._http.get(`${environment.apiUrl}/post/getAllPosts`).subscribe(
       (data) => {
         this.posts = data;
         // Initialize the postLiked object
@@ -83,7 +84,7 @@ export class PostComponent implements OnInit {
     });
 
     this._http
-      .put(`http://localhost:5000/api/post/likePost/${postId}`, {}, { headers })
+      .put(`${environment.apiUrl}/post/likePost/${postId}`, {}, { headers })
       .subscribe(
         (data) => {
           const post = this.posts.find((post: any) => post._id === postId);
@@ -105,7 +106,7 @@ export class PostComponent implements OnInit {
 
     this._http
       .put(
-        `http://localhost:5000/api/post/unlikePost/${postId}`,
+        `${environment.apiUrl}/post/unlikePost/${postId}`,
         {},
         { headers }
       )

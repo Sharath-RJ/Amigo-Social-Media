@@ -28,7 +28,6 @@ import { FeedComponent } from './component/feed/feed.component';
 import { PostComponent } from './component/post/post.component';
 import { StoriesComponent } from './component/stories/stories.component';
 import { ProfileComponent } from './component/profile/profile.component';
-import { ExploreComponent } from './component/explore/explore.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { AddPostComponent } from './component/add-post/add-post.component';
 import { AdminloginComponent } from './component/admin/adminlogin/adminlogin.component';
@@ -81,7 +80,6 @@ import { FluencyTestComponent } from './component/modal/fluency-test/fluency-tes
     PostComponent,
     StoriesComponent,
     ProfileComponent,
-    ExploreComponent,
     MenuComponent,
     AddPostComponent,
     AdminloginComponent,

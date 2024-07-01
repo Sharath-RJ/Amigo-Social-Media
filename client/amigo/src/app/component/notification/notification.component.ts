@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NotificationService } from '../../services/notification.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environment';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class NotificationComponent implements OnInit {
   constructor(private _http:HttpClient) {}
 
   ngOnInit(): void {
-    this._http.get<any[]>(`http://localhost:5000/api/notification/getAllNotifications`).subscribe(
+    this._http.get<any[]>(`${environment.apiUrl}/notification/getAllNotifications`).subscribe(
       (data) => {
         this.notifications = data;
       },

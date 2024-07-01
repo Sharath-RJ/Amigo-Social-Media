@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-showall-likes',
@@ -15,7 +16,7 @@ export class ShowallLikesComponent {
 
   ngOnInit(): void {
     this._http
-      .get<any>('http://localhost:5000/api/post/showLikes/' + this.postId)
+      .get<any>(`${environment.apiUrl}/post/showLikes/${this.postId}`)
       .subscribe(
         (data) => {
           

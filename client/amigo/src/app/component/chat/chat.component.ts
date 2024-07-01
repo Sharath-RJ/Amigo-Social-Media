@@ -61,21 +61,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
   openModal(){
     const dialogRef = this.dialog.open(FluencyTestComponent)
   }
-  checkFulency(){
-    this._http
-      .post('http://localhost:5000/api/chat/checkFluency', {
-        audioUrl:
-          'https://res.cloudinary.com/djbvjenjy/raw/upload/v1718534117/audio/1718534111915-recording.wav',
-      })
-      .subscribe(
-        (data) => {
-          console.log(data);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-  }
+ 
   playAudio(message: any, index: number) {
     if (this.currentAudio) {
       this.currentAudio.pause();

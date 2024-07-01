@@ -20,7 +20,7 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     console.log('hello');
     this._http
-      .get<User[]>('http://localhost:5000/api/admin/getAllUsers')
+      .get<User[]>(`${environment.apiUrl}/admin/getAllUsers`)
       .subscribe(
         (data: User[]) => {
           console.log(data);

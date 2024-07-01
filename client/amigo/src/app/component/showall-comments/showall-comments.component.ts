@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-showall-comments',
@@ -15,7 +16,7 @@ export class ShowallCommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this._http
-      .get<any>('http://localhost:5000/api/post/showComments/' + this.postId)
+      .get<any>(`${environment.apiUrl}/post/showComments/${this.postId}` )
       .subscribe(
         (data) => {
           console.log(data)
